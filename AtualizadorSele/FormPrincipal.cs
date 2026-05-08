@@ -618,8 +618,13 @@ namespace AtualizadorSoftware
             lblStatusConexao.Text = "Testando...";
             lblStatusConexao.ForeColor = Color.DarkBlue;
 
+            string instancia = txtInstancia.Text;
+            string banco = cmbBanco.Text;
+            string usuario = txtUsuario.Text;
+            string senha = txtSenha.Text;
+
             var resultado = await Task.Run(() =>
-                _scriptService.TestarConexao(txtInstancia.Text, cmbBanco.Text, txtUsuario.Text, txtSenha.Text)
+                _scriptService.TestarConexao(instancia, banco, usuario, senha)
             );
 
             if (resultado.sucesso)
